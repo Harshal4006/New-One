@@ -1,0 +1,122 @@
+<% layout("/layouts/boilerplate") %>
+
+<!--Create Listing Page Container...-->
+<div class="container">
+
+    <!--Create Listing Form Section...-->
+    <div class="row mt-4 justify-content-center">
+
+        <div class="col-12 col-md-10 col-lg-8">
+
+            <!--Page Heading...-->
+            <h3 class="mb-4 text-primary">
+                Create A New Listing
+            </h3>
+
+            <!--Create Listing Form...-->
+            <form
+                action="/listings"
+                method="POST"
+                class="needs-validation"
+                novalidate
+                enctype="multipart/form-data"
+            >
+
+                <!--Title Field...-->
+                <div class="mb-3">
+                    <label class="form-label text-secondary">Title</label>
+                    <input
+                        type="text"
+                        name="listing[title]"
+                        class="form-control"
+                        required
+                    >
+                </div>
+
+                <!--Description Field...-->
+                <div class="mb-3">
+                    <label class="form-label text-secondary">Description</label>
+                    <textarea
+                        name="listing[description]"
+                        class="form-control"
+                        rows="3"
+                        required
+                    ></textarea>
+                </div>
+
+                <!--Category Selection...-->
+                <div class="mb-3">
+                    <label class="form-label text-secondary">Category</label>
+                    <select
+                        name="listing[category]"
+                        class="form-select"
+                        required
+                    >
+                        <option value="">Select category</option>
+                        <option value="trending">Trending</option>
+                        <option value="room">Room</option>
+                        <option value="city">City</option>
+                        <option value="beach">Beach</option>
+                        <option value="farm">Farm</option>
+                        <option value="treehouse">Treehouse</option>
+                        <option value="camping">Camping</option>
+                        <option value="domes">Domes</option>
+                        <option value="tower">Towers</option>
+                        <option value="hills">Hills</option>
+                        <option value="desert">Desert</option>
+                        <option value="heritage">Heritage</option>
+                        <option value="luxury">Luxury</option>
+                    </select>
+                </div>
+
+                <!--Image Upload Field...-->
+                <div class="mb-3">
+                    <label class="form-label text-secondary">Image</label>
+                    <input
+                        type="file"
+                        name="listing[image]"
+                        class="form-control"
+                    >
+                </div>
+
+                <!--Price And Country Fields...-->
+                <div class="row">
+                    <div class="col-12 col-md-4 mb-3">
+                        <label class="form-label text-secondary">Price</label>
+                        <input
+                            name="listing[price]"
+                            class="form-control"
+                            required
+                        >
+                    </div>
+
+                    <div class="col-12 col-md-8 mb-3">
+                        <label class="form-label text-secondary">Country</label>
+                        <input
+                            name="listing[country]"
+                            class="form-control"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <!--Location Field...-->
+                <div class="mb-3">
+                    <label class="form-label text-secondary">Location</label>
+                    <input
+                        name="listing[location]"
+                        class="form-control"
+                        required
+                    >
+                </div>
+
+                <!--Submit Button...-->
+                <button class="btn btn-dark mt-3">
+                    Add Listing
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<!--Success Flash Message...-->
+<% if (typeof success !== "undefined" && success.length) { %>
+    <div class="container mt-3">
+        <div class="d-flex justify-content-center">
+            <div class="alert alert-success alert-dismissible fade show
+                        col-lg-6 col-md-8 col-12 text-center"
+                 role="alert">
+                <span class="text-truncate d-inline-block w-100">
+                    <%= success %>
+                </span>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="alert"
+                        aria-label="Close">
+                </button>
+            </div>
+        </div>
+    </div>
+<% } %>
+
+<!--Error Flash Message...-->
+<% if (typeof error !== "undefined" && error.length) { %>
+    <div class="container mt-3">
+        <div class="d-flex justify-content-center">
+            <div class="alert alert-danger alert-dismissible fade show
+                        col-lg-6 col-md-8 col-12 text-center"
+                 role="alert">
+                <span class="text-truncate d-inline-block w-100">
+                    <%= error %>
+                </span>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="alert"
+                        aria-label="Close">
+                </button>
+            </div>
+        </div>
+    </div>
+<% } %>

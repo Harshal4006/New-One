@@ -1,0 +1,168 @@
+<% layout("layouts/boilerplate") %>
+
+<!--Filter Bar Section...-->
+<div class="d-flex align-items-center my-4">
+
+    <!--Scrollable Filters...-->
+    <div class="filter-scroll d-flex gap-3">
+
+        <a href="/listings" class="filter-chip">
+            <i class="fa-solid fa-house"></i>
+            <span>All</span>
+        </a>
+
+        <a href="/listings?category=trending" class="filter-chip">
+            <i class="fa-solid fa-fire"></i>
+            <span>Trending</span>
+        </a>
+
+        <a href="/listings?category=room" class="filter-chip">
+            <i class="fa-solid fa-bed"></i>
+            <span>Room</span>
+        </a>
+
+        <a href="/listings?category=city" class="filter-chip">
+            <i class="fa-solid fa-city"></i>
+            <span>City</span>
+        </a>
+
+        <a href="/listings?category=beach" class="filter-chip">
+            <i class="fa-solid fa-umbrella-beach"></i>
+            <span>Beach</span>
+        </a>
+
+        <a href="/listings?category=farm" class="filter-chip">
+            <i class="fa-solid fa-tractor"></i>
+            <span>Farm</span>
+        </a>
+
+        <a href="/listings?category=treehouse" class="filter-chip">
+            <i class="fa-solid fa-tree"></i>
+            <span>Treehouse</span>
+        </a>
+
+        <a href="/listings?category=camping" class="filter-chip">
+            <i class="fa-solid fa-caravan"></i>
+            <span>Camping</span>
+        </a>
+
+        <a href="/listings?category=domes" class="filter-chip">
+            <i class="fa-solid fa-landmark-dome"></i>
+            <span>Domes</span>
+        </a>
+
+        <a href="/listings?category=tower" class="filter-chip">
+            <i class="fa-solid fa-tower-observation"></i>
+            <span>Towers</span>
+        </a>
+
+        <a href="/listings?category=hills" class="filter-chip">
+            <i class="fa-solid fa-mountain"></i>
+            <span>Hills</span>
+        </a>
+
+        <a href="/listings?category=desert" class="filter-chip">
+            <i class="fa-solid fa-sun"></i>
+            <span>Desert</span>
+        </a>
+
+        <a href="/listings?category=heritage" class="filter-chip">
+            <i class="fa-solid fa-landmark"></i>
+            <span>Heritage</span>
+        </a>
+
+        <a href="/listings?category=luxury" class="filter-chip">
+            <i class="fa-solid fa-gem"></i>
+            <span>Luxury</span>
+        </a>
+
+    </div>
+
+    <!--GST Toggle Switch...-->
+    <div class="ms-3 d-flex align-items-center">
+        <div class="form-check form-switch d-flex align-items-center gap-2">
+            <input class="form-check-input" type="checkbox" id="switchCheckDefault">
+            <label class="form-check-label fw-bold text-danger small mb-0" for="switchCheckDefault">
+                GST
+            </label>
+        </div>
+    </div>
+
+</div>
+
+<!--Listings Grid Section...-->
+<div class="row g-4 mt-3">
+
+    <% if (allListings.length===0) { %>
+        <!--No Listings State...-->
+        <div class="col-12 d-flex justify-content-center">
+            <div class="card text-center shadow-sm border-0 col-lg-4 col-md-6 col-sm-10">
+                <div class="card-body py-5">
+                    <div class="mb-3 text-muted">
+                        <i class="fa-solid fa-magnifying-glass fa-2x"></i>
+                    </div>
+                    <h4 class="card-title mb-2">No Listings Found</h4>
+                    <p class="card-text text-muted mb-3">
+                        We couldn’t find any listings matching your search.
+                    </p>
+                    <a href="/listings" class="btn btn-outline-dark btn-sm">
+                        View All Listings
+                    </a>
+                </div>
+            </div>
+        </div>
+    <% } %>
+
+    <% for (let listing of allListings) { %>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <a href="/listings/<%= listing._id %>" class="listing-link">
+
+                <div class="card listing-card h-100">
+
+                    <img src="<%= listing.image?.url || 'https://via.placeholder.com/400x300' %>"
+                        class="card-img-top" alt="listing_image" style="height: 20rem; object-fit: cover;">
+
+                    <div class="card-body">
+
+                        <!--Listing Title...-->
+                        <p class="mb-1 fw-semibold text-dark fs-6">
+                            <%= listing.title %>
+                        </p>
+
+                        <!--Listing Price...-->
+                        <p class="mb-0">
+                            <span class="fw-bold text-danger fs-4">
+                                &#8377;
+                                <%= listing.price ? listing.price.toLocaleString("en-IN") : "N/A" %>
+                            </span>
+                            <span class="text-muted small ms-1">
+                                <i>/ Per Booking</i>
+                            </span>
+                            <span class="tax-info text-muted small ms-1">
+                                +18% GST
+                            </span>
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </a>
+        </div>
+    <% } %>
+
+</div>
+
+<!--Tax Toggle Script...-->
+<script>
+    //GST Price Toggle Logic...
+    const taxSwitch = document.getElementById("switchCheckDefault");
+
+    taxSwitch.addEventListener("click", () => {
+        const taxInfo = document.getElementsByClassName("tax-info");
+        for (let info of taxInfo) {
+            info.style.display =
+                info.style.display === "inline" ? "none" : "inline";
+        }
+    });
+</script>

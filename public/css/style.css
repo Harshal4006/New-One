@@ -1,0 +1,269 @@
+/*Global Layout Styles...*/
+body {
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 1;
+}
+
+/*Navbar Styles...*/
+.navbar {
+    height: 5rem;
+    background-color: white;
+}
+
+.fa-bluesky {
+    color: #fe424d;
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: #222222 !important;
+}
+
+/*Footer Styles...*/
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+.f-info-links,
+.f-info-socials,
+.f-info-brand {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-socials i {
+    font-size: 1.2rem;
+    margin-right: 0.9rem;
+}
+
+.f-info {
+    background-color: #ebebeb;
+    text-align: center;
+    display: flex;
+    height: 8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+/*Listing Card Styles...*/
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body {
+    padding: 0 !important;
+}
+
+.card-text p {
+    font-weight: 400 !important;
+}
+
+.listing-link {
+    text-decoration: none;
+}
+
+/*Card Hover Effect...*/
+.card-img-overlay {
+    opacity: 0;
+}
+
+.card-img-overlay:hover {
+    opacity: 0.2;
+    background-color: white;
+}
+
+/*Add Listing Button...*/
+.add-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/*Edit Listing Button...*/
+.edit-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/*Show Page Layout...*/
+.show-img {
+    height: 30vh;
+}
+
+.btns {
+    display: flex;
+}
+
+.show-card {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/*Search Bar Styles...*/
+.search-btn {
+    background-color: #fe424d;
+    color: white;
+    border-radius: 25px;
+    padding: 0 1rem 0 1rem;
+}
+
+.search-btn i {
+    display: inline;
+    margin-right: 0.5rem;
+}
+
+.search-input {
+    border-radius: 25px;
+    padding: 0.5rem 3rem 0.5rem 3rem;
+}
+
+/*Filter Bar Styles...*/
+#filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+}
+
+.filter {
+    text-align: center;
+    margin-top: 1rem;
+    opacity: 0.7;
+    margin-bottom: 1rem;
+}
+
+.filter:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.filter p {
+    font-size: 0.8rem;
+}
+
+.tax-info {
+    display: none;
+}
+
+.tax-toggle {
+    border: 1px solid #000;
+    border-radius: 1rem;
+    padding: 1rem;
+    height: 3rem;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+/*Filter Chip Styles...*/
+.filter-scroll {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.filter-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-chip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 72px;
+    padding: 0.75rem 0.6rem;
+    border-radius: 18px;
+    text-decoration: none;
+    color: #222;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    transition: all 0.25s ease;
+}
+
+.filter-chip i {
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+}
+
+.filter-chip span {
+    font-size: 0.75rem;
+    white-space: nowrap;
+}
+
+.filter-chip:hover {
+    background-color: #212529;
+    color: #fff;
+    border-color: #212529;
+    transform: translateY(-2px);
+}
+
+.filter-chip.active {
+    background-color: #212529;
+    color: #fff;
+    border-color: #212529;
+}
+
+/*Show Page Image Fix...*/
+.show-card {
+    overflow: hidden;
+}
+
+.show-card img {
+    max-height: 400px;
+    object-fit: cover;
+}
+
+/*Review Star Styles...*/
+.review-stars {
+    transform: scale(0.7);
+    transform-origin: left center;
+}
+
+.starability-result,
+.starability-slot label,
+.starability-slot label::before {
+    filter: grayscale(100%) brightness(0%);
+}
+
+.starability-result {
+    max-width: 100%;
+}
+
+/*Review Card Styles...*/
+.review-card {
+    border-radius: 10px;
+}
+
+/*Mobile Responsive Styles...*/
+@media (max-width: 576px) {
+    .review-stars {
+        transform: scale(0.6);
+    }
+
+    .review-card {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}

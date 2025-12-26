@@ -1,0 +1,101 @@
+<% layout("/layouts/boilerplate") %>
+
+<!--Signup Page Container...-->
+<div class="container">
+    <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
+
+        <!--Signup Card...-->
+        <div class="col-12 col-sm-10 col-md-8 col-lg-5 col-xl-4">
+            <div class="card shadow-lg border-0">
+
+                <!--Card Header...-->
+                <div class="card-header bg-danger text-white text-center py-3">
+                    <h4 class="mb-0 fw-bold">Signup on DealHub</h4>
+                </div>
+
+                <!--Card Body...-->
+                <div class="card-body p-4 bg-white">
+
+                    <!--Signup Form...-->
+                    <form action="/signup" method="POST" class="needs-validation" novalidate>
+
+                        <!--Username Field...-->
+                        <div class="mb-3">
+                            <label for="username" class="form-label fw-semibold text-danger">
+                                Username
+                            </label>
+                            <input
+                                type="text"
+                                name="username"
+                                class="form-control form-control-lg"
+                                id="username"
+                                placeholder="Choose a username"
+                                required
+                            >
+                            <div class="invalid-feedback">
+                                Username is required!
+                            </div>
+                        </div>
+
+                        <!--Email Field...-->
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-semibold text-danger">
+                                Email
+                            </label>
+                            <input
+                                type="email"
+                                name="email"
+                                class="form-control form-control-lg"
+                                id="email"
+                                placeholder="Enter your email"
+                                required
+                            >
+                            <div class="invalid-feedback">
+                                Please enter a valid email!
+                            </div>
+                        </div>
+
+                        <!--Password Field...-->
+                        <div class="mb-3">
+                            <label for="password" class="form-label fw-semibold text-danger">
+                                Password
+                            </label>
+                            <input
+                                type="password"
+                                name="password"
+                                class="form-control form-control-lg"
+                                id="password"
+                                placeholder="Create a password"
+                                required
+                            >
+                            <div class="invalid-feedback">
+                                Password is required!
+                            </div>
+                        </div>
+
+                        <!--Submit Button...-->
+                        <div class="d-grid mt-4">
+                            <button class="btn btn-danger btn-lg">
+                                Signup
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <!--Card Footer...-->
+                <div class="card-footer text-center bg-light py-3">
+                    <small class="text-muted">
+                        Already have an account?
+                        <a href="/login" class="text-danger fw-semibold text-decoration-none">
+                            Login
+                        </a>
+                    </small>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

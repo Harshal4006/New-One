@@ -1,0 +1,126 @@
+<% layout("/layouts/boilerplate") %>
+
+<!--Edit Listing Page Container...-->
+<div class="container">
+    <div class="row mt-4 justify-content-center">
+
+        <div class="col-12 col-md-10 col-lg-8">
+
+            <!--Page Heading...-->
+            <h3 class="mb-4 text-primary">
+                Edit Listing
+            </h3>
+
+            <!--Edit Listing Form...-->
+            <form
+                action="/listings/<%= listing._id %>?_method=PUT"
+                method="POST"
+                class="needs-validation"
+                novalidate
+                enctype="multipart/form-data"
+            >
+
+                <!--Title Field...-->
+                <div class="mb-3">
+                    <label class="form-label text-secondary">Title</label>
+                    <input
+                        type="text"
+                        name="listing[title]"
+                        value="<%= listing.title %>"
+                        class="form-control"
+                        required
+                    >
+                </div>
+
+                <!--Description Field...-->
+                <div class="mb-3">
+                    <label class="form-label text-secondary">Description</label>
+                    <textarea
+                        name="listing[description]"
+                        class="form-control"
+                        rows="3"
+                        required
+                    ><%= listing.description %></textarea>
+                </div>
+
+                <!--Category Selection...-->
+                <div class="mb-3">
+                    <label class="form-label text-secondary">Category</label>
+                    <select
+                        name="listing[category]"
+                        class="form-select"
+                        required
+                    >
+                        <option value="trending" <%= listing.category==="trending" ? "selected" : "" %>>Trending</option>
+                        <option value="room" <%= listing.category==="room" ? "selected" : "" %>>Room</option>
+                        <option value="city" <%= listing.category==="city" ? "selected" : "" %>>City</option>
+                        <option value="beach" <%= listing.category==="beach" ? "selected" : "" %>>Beach</option>
+                        <option value="farm" <%= listing.category==="farm" ? "selected" : "" %>>Farm</option>
+                        <option value="treehouse" <%= listing.category==="treehouse" ? "selected" : "" %>>Treehouse</option>
+                        <option value="camping" <%= listing.category==="camping" ? "selected" : "" %>>Camping</option>
+                        <option value="domes" <%= listing.category==="domes" ? "selected" : "" %>>Domes</option>
+                        <option value="tower" <%= listing.category==="tower" ? "selected" : "" %>>Towers</option>
+                        <option value="hills" <%= listing.category==="hills" ? "selected" : "" %>>Hills</option>
+                        <option value="desert" <%= listing.category==="desert" ? "selected" : "" %>>Desert</option>
+                        <option value="heritage" <%= listing.category==="heritage" ? "selected" : "" %>>Heritage</option>
+                        <option value="luxury" <%= listing.category==="luxury" ? "selected" : "" %>>Luxury</option>
+                    </select>
+                </div>
+
+                <!--Image Upload Field...-->
+                <div class="mb-3">
+                    <label class="form-label text-secondary">Upload New Image</label>
+                    <input
+                        type="file"
+                        name="listing[image]"
+                        class="form-control"
+                    >
+                </div>
+
+                <!--Price And Country Fields...-->
+                <div class="row">
+                    <div class="col-12 col-md-4 mb-3">
+                        <label class="form-label text-secondary">Price</label>
+                        <input
+                            type="number"
+                            name="listing[price]"
+                            value="<%= listing.price %>"
+                            class="form-control"
+                            required
+                        >
+                    </div>
+
+                    <div class="col-12 col-md-8 mb-3">
+                        <label class="form-label text-secondary">Country</label>
+                        <input
+                            type="text"
+                            name="listing[country]"
+                            value="<%= listing.country %>"
+                            class="form-control"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <!--Location Field...-->
+                <div class="mb-3">
+                    <label class="form-label text-secondary">Location</label>
+                    <input
+                        type="text"
+                        name="listing[location]"
+                        value="<%= listing.location %>"
+                        class="form-control"
+                        required
+                    >
+                </div>
+
+                <!--Submit Button...-->
+                <button class="btn btn-dark mt-3">
+                    Update Listing
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+</div>

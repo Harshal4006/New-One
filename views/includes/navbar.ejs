@@ -1,0 +1,100 @@
+<!--Navbar Section...-->
+<nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top py-2">
+    <div class="container d-flex align-items-center justify-content-between">
+
+        <!--Brand Logo...-->
+        <a class="navbar-brand fw-bold text-danger fs-5" href="/listings">
+            DealHub
+        </a>
+
+        <!--Mobile Search Bar...-->
+        <form class="d-flex d-lg-none flex-grow-1 justify-content-center" role="search" action="/listings" method="GET">
+            <div class="col-7">
+                <input class="form-control form-control-sm text-center" type="search" name="search"
+                    placeholder="Search..." value="<%= typeof search !== 'undefined' ? search : '' %>">
+            </div>
+        </form>
+
+        <!--Mobile Menu Dropdown...-->
+        <div class="dropdown d-lg-none">
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!--Dropdown Menu Items...-->
+            <ul class="dropdown-menu dropdown-menu-end mt-2 shadow-sm rounded-3">
+
+                <li>
+                    <a class="dropdown-item fw-semibold" href="/listings">
+                        Explore
+                    </a>
+                </li>
+
+                <% if (typeof currUser==="undefined" || !currUser) { %>
+                    <li>
+                        <a class="dropdown-item" href="/login">Log In</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item text-danger fw-semibold" href="/signup">
+                            Sign Up
+                        </a>
+                    </li>
+                    <% } else { %>
+                        <li>
+                            <a class="dropdown-item" href="/listings/new">Add New</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-danger" href="/logout">
+                                Log Out
+                            </a>
+                        </li>
+                        <% } %>
+            </ul>
+        </div>
+
+        <!--Desktop Search Bar...-->
+        <form class="d-none d-lg-flex mx-4 w-100 justify-content-center" role="search" action="/listings" method="GET"
+            style="max-width: 600px;">
+            <div class="input-group">
+                <input class="form-control rounded-pill-start border-end-0" type="search" name="search"
+                    placeholder="Search destinations" value="<%= typeof search !== 'undefined' ? search : '' %>">
+                <button class="btn btn-danger rounded-pill-end px-3" type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </form>
+
+        <!--Desktop Navigation Actions...-->
+        <ul class="navbar-nav d-none d-lg-flex align-items-center gap-2">
+
+            <li class="nav-item">
+                <a class="nav-link fw-semibold text-dark" href="/listings">
+                    Explore
+                </a>
+            </li>
+
+            <% if (typeof currUser==="undefined" || !currUser) { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Log In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-danger btn-sm px-3 rounded-pill" href="/signup">
+                        Sign Up
+                    </a>
+                </li>
+                <% } else { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/listings/new">Add New</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-dark btn-sm px-3 rounded-pill" href="/logout">
+                            Log Out
+                        </a>
+                    </li>
+                    <% } %>
+
+        </ul>
+
+    </div>
+</nav>
